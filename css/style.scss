@@ -1,6 +1,7 @@
 $dark-gray: rgba(203, 203, 203, 1);
 $light-gray: rgba(218, 214, 214, 0.5);
-
+$red: rgba(255, 0, 0, 1);
+$green: rgba(4, 184, 65, 1);
 * {
     margin: 0;
     padding: 0;
@@ -9,6 +10,7 @@ $light-gray: rgba(218, 214, 214, 0.5);
 html {
     height: 100%;
     width: 100%;
+    
 }
 body {
     max-height: 100%;
@@ -79,6 +81,20 @@ body {
             border-radius: 15px;
             font-size: 1rem;
             font-weight:200;
+
+            i {
+                position: absolute;
+                left: 13.8vw;
+                top: 30vh;
+                color: $red;
+                font-size: 36px;
+
+                &:hover {
+                    transition: color .5s ease-in-out;
+                    cursor: pointer;
+                    color: rgb(206, 13, 13);
+                }
+            }
             div {
                 width: 100%;
                 height: 50%;
@@ -92,18 +108,81 @@ body {
             }
         }
     }
-
+    
+    
     .BookForm {
         display: flex;
         align-items: center;
         flex-direction: column;
-        
+        z-index: 5;
         gap: 1rem;
         position: absolute;
-        top: 30vh;
-        left: 38vw;
-        z-index: 5;
+        top: 25vh;
+        left: 39vw;
+        border-radius: 25px;
         background-color: $dark-gray;
+
+        .removeme {
+            position: absolute;
+            left: -0.5vw;
+            top: -2vh;
+            color: $red;
+            font-size: 48px;
+            
+                i:hover {
+                    transition: color .5s ease-in-out;
+                    cursor: pointer;
+                    color: rgb(206, 13, 13);
+                }
+            
+        }
+        .send {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: flex-end;
+            height: 6rem;
+           width: 4.5rem; 
+           border-radius: 0px 0px 40px 40px;
+           top: 58.3vh;
+           left: 9.1vw;
+           background-color: $green;
+           position: absolute;
+           z-index: 1;
+           
+           input {
+            border: none;
+           }
+           &:hover {
+
+            i {
+                
+                transform: translatey(-0.5rem);
+            }
+            cursor: pointer;
+            
+           }
+           i {
+            transition: .2s transform ease;
+            font-size: 48px;
+            padding-bottom: 0.5rem;
+            margin-left: 0.1rem;
+            color: white;
+            input {
+                position: absolute;
+                background-color: transparent;
+                border-radius: 50%;
+                top: 5%;
+                left: 5%;
+                height: 90%;
+                width: 90%;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            
+           }
+        }
         
         form {
             display: flex;
@@ -111,26 +190,76 @@ body {
             flex-direction: column;
             gap: 2rem;
             padding: 0 1rem;
+            
+            .radio-holder{
+                margin-left: -0.2rem;
+                padding-bottom: 1rem;
+                margin-top: -1.2rem;
+            }
 
-            input:not([type="checkbox"]) {
+            input:not([type="radio"]) {
                 min-height: 2.8rem;
                 min-width: 20rem;
                 border-radius: 20px;
                 border: none;
                 background-color: white;
+                padding-left: 1rem;
+                font-size: 1.1rem;
+                font-weight: bold;
+
+                &:focus {
+                    outline: none;
+                    
+                    box-shadow: 0px 0px 5px black;
+                }
             }
             
-            input[type="radio"] {
-                    min-width: 50px;
-                    min-height: 50px;
-                    outline: none !important;
-                    border-color: 2px solid red;
+            .custom-radio {
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+                margin-left: 0.8rem;
+                
+                input {
+                    display: none;
+
+                    &:checked + .checkmark {
+                        background-color: $red;
+                    }
+                    
+                    
                 }
+                input:not([class="red"]){
+                    &:checked + .checkmark {
+                        
+                        background-color: $green;
+                    }
+                }
+
+                .checkmark {
+                    width: 35px;
+                    height: 35px;
+                    border: 3px solid $red;
+                    border-radius: 50%;
+                    display: inline-block;
+
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+                .checkmark:not([class="checkmark red"]){
+                    border: 3px solid $green;
+                }
+            }
             
             
         }
         h1 {
             padding-top: 1.5rem;
+        }
+        p {
+            font-size: 1.6rem;
+            font-weight: bold;
         }
     }
 

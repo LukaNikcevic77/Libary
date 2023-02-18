@@ -75,6 +75,18 @@ body main .book {
   font-size: 1rem;
   font-weight: 200;
 }
+body main .book i {
+  position: absolute;
+  left: 13.8vw;
+  top: 30vh;
+  color: rgb(255, 0, 0);
+  font-size: 36px;
+}
+body main .book i:hover {
+  transition: color 0.5s ease-in-out;
+  cursor: pointer;
+  color: rgb(206, 13, 13);
+}
 body main .book div {
   width: 100%;
   height: 50%;
@@ -90,12 +102,67 @@ body .BookForm {
   display: flex;
   align-items: center;
   flex-direction: column;
+  z-index: 5;
   gap: 1rem;
   position: absolute;
-  top: 30vh;
-  left: 38vw;
-  z-index: 5;
+  top: 25vh;
+  left: 39vw;
+  border-radius: 25px;
   background-color: rgb(203, 203, 203);
+}
+body .BookForm .removeme {
+  position: absolute;
+  left: -0.5vw;
+  top: -2vh;
+  color: rgb(255, 0, 0);
+  font-size: 48px;
+}
+body .BookForm .removeme i:hover {
+  transition: color 0.5s ease-in-out;
+  cursor: pointer;
+  color: rgb(206, 13, 13);
+}
+body .BookForm .send {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 6rem;
+  width: 4.5rem;
+  border-radius: 0px 0px 40px 40px;
+  top: 58.3vh;
+  left: 9.1vw;
+  background-color: rgb(4, 184, 65);
+  position: absolute;
+  z-index: 1;
+}
+body .BookForm .send input {
+  border: none;
+}
+body .BookForm .send:hover {
+  cursor: pointer;
+}
+body .BookForm .send:hover i {
+  transform: translatey(-0.5rem);
+}
+body .BookForm .send i {
+  transition: 0.2s transform ease;
+  font-size: 48px;
+  padding-bottom: 0.5rem;
+  margin-left: 0.1rem;
+  color: white;
+}
+body .BookForm .send i input {
+  position: absolute;
+  background-color: transparent;
+  border-radius: 50%;
+  top: 5%;
+  left: 5%;
+  height: 90%;
+  width: 90%;
+}
+body .BookForm .send i input:hover {
+  cursor: pointer;
 }
 body .BookForm form {
   display: flex;
@@ -104,19 +171,57 @@ body .BookForm form {
   gap: 2rem;
   padding: 0 1rem;
 }
-body .BookForm form input:not([type=checkbox]) {
+body .BookForm form .radio-holder {
+  margin-left: -0.2rem;
+  padding-bottom: 1rem;
+  margin-top: -1.2rem;
+}
+body .BookForm form input:not([type=radio]) {
   min-height: 2.8rem;
   min-width: 20rem;
   border-radius: 20px;
   border: none;
   background-color: white;
+  padding-left: 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
 }
-body .BookForm form input[type=radio] {
-  min-width: 50px;
-  min-height: 50px;
-  outline: none !important;
-  border-color: 2px solid red;
+body .BookForm form input:not([type=radio]):focus {
+  outline: none;
+  box-shadow: 0px 0px 5px black;
+}
+body .BookForm form .custom-radio {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-left: 0.8rem;
+}
+body .BookForm form .custom-radio input {
+  display: none;
+}
+body .BookForm form .custom-radio input:checked + .checkmark {
+  background-color: rgb(255, 0, 0);
+}
+body .BookForm form .custom-radio input:not([class=red]):checked + .checkmark {
+  background-color: rgb(4, 184, 65);
+}
+body .BookForm form .custom-radio .checkmark {
+  width: 35px;
+  height: 35px;
+  border: 3px solid rgb(255, 0, 0);
+  border-radius: 50%;
+  display: inline-block;
+}
+body .BookForm form .custom-radio .checkmark:hover {
+  cursor: pointer;
+}
+body .BookForm form .custom-radio .checkmark:not([class="checkmark red"]) {
+  border: 3px solid rgb(4, 184, 65);
 }
 body .BookForm h1 {
   padding-top: 1.5rem;
+}
+body .BookForm p {
+  font-size: 1.6rem;
+  font-weight: bold;
 }/*# sourceMappingURL=style.css.map */
