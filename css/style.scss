@@ -128,12 +128,18 @@ body {
             top: -2vh;
             color: $red;
             font-size: 48px;
-            
+
                 i:hover {
                     transition: color .5s ease-in-out;
                     cursor: pointer;
                     color: rgb(206, 13, 13);
                 }
+            .startPopDown {
+                animation-name: popDown;
+                animation-duration: 2s;
+                animation-iteration-count: infinite;
+            }
+                
             
         }
         .send {
@@ -264,3 +270,6 @@ body {
     }
 
 }
+
+//Custom animations
+

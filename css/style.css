@@ -122,6 +122,11 @@ body .BookForm .removeme i:hover {
   cursor: pointer;
   color: rgb(206, 13, 13);
 }
+body .BookForm .removeme .startPopDown {
+  animation-name: popDown;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
 body .BookForm .send {
   display: flex;
   align-items: center;
