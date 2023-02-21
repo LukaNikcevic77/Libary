@@ -21,6 +21,15 @@ body {
     z-index: -10;
     background-color: $light-gray;
 
+    .Scale-Down-anim {
+        animation: ScaleDown 1s cubic-bezier(1, 0.05, 0.81, 0.37) forwards;
+    }
+    .Scale-Up-anim {
+        animation: ScaleUp 1s forwards;
+    }
+    .Fade-Away-anim {
+        animation: FadeAway 1s forwards;
+    }
     header {
         
         background-color: $dark-gray;
@@ -92,7 +101,7 @@ body {
                 &:hover {
                     transition: color .5s ease-in-out;
                     cursor: pointer;
-                    color: rgb(206, 13, 13);
+                    color: $red;
                 }
             }
             div {
@@ -105,6 +114,11 @@ body {
                 background-color: green;
                 color: white;
                 font-size: 2rem;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: $red;
+                }
             }
         }
     }
@@ -121,7 +135,7 @@ body {
         left: 39vw;
         border-radius: 25px;
         background-color: $dark-gray;
-
+        
         .removeme {
             position: absolute;
             left: -0.5vw;
@@ -134,11 +148,7 @@ body {
                     cursor: pointer;
                     color: rgb(206, 13, 13);
                 }
-            .startPopDown {
-                animation-name: popDown;
-                animation-duration: 2s;
-                animation-iteration-count: infinite;
-            }
+            
                 
             
         }
@@ -273,3 +283,42 @@ body {
 
 //Custom animations
 
+@keyframes ScaleDown {
+    0% {
+        transform: scale(1);
+    }
+
+    20% {
+        transform: scale(1.1);
+    }
+    30% {
+        transform: scale(1.1);
+    }
+    
+
+    100% {
+        transform: scale(0);
+        visibility:hidden;
+    }
+}
+
+@keyframes ScaleUp {
+    0% {
+        visibility: initial;
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes FadeAway {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

@@ -13,27 +13,29 @@
     
     <header>
         <h1>ILibary!</h1>
-        <div class="addBook">
+        <div class="addBook"  id="AddBook">
             <h1 class="addBookText">+Book</h1>
         </div>
     </header>
 
     <main>
-        <div class="book">
+        <div class="book" id="OldBook">
             
-                <i class="fa-solid fa-circle-minus" ></i>
+                <i class="fa-solid fa-circle-minus" id="removeOld"></i>
             
             <h1>Title</h1>
             <h1>Author</h1>
             <h1>Pages</h1>
             <h1>Grade</h1>
-            <div>Read</div>
+            <div>
+            Read
+            </div>
         </div>
         
             
     </main>
     
-    <div class="BookForm">
+    <div class="BookForm" id="BookForm">
         <div class="removeme">
             <i class="fa-solid fa-circle-minus" id="removeNewBook"></i>
         </div>
@@ -66,6 +68,6 @@
             
         </div>
     </div>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
