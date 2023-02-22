@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <title>ILibary!</title>
 </head>
@@ -18,19 +20,8 @@
         </div>
     </header>
 
-    <main>
-        <div class="book" id="OldBook">
-            
-                <i class="fa-solid fa-circle-minus" id="removeOld"></i>
-            
-            <h1>Title</h1>
-            <h1>Author</h1>
-            <h1>Pages</h1>
-            <h1>Grade</h1>
-            <div>
-            Read
-            </div>
-        </div>
+    <main id="main">
+        
         
             
     </main>
@@ -40,33 +31,34 @@
             <i class="fa-solid fa-circle-minus" id="removeNewBook"></i>
         </div>
         <h1>New book</h1>
-        <form action="">
-            <input type="text" name="" id="" placeholder="Name">
-            <input type="text" name="" id="" placeholder="Author">
-            <input type="number" name="" id="" placeholder="Pages" min="1">
-            <input type="number" name="" id="" placeholder="Grade" min="1" max="10">
+        <form action="/" method="GET" id="form" name="myform">
+            <input type="text" name="name" id="name" placeholder="Name" required>
+            <input type="text" name="author" id="author" placeholder="Author" required>
+            <input type="number" name="pages" id="pages" placeholder="Pages" min="1" required>
+            <input type="number" name="grade" id="grade" placeholder="Grade" min="1" max="10" required>
             <span>
                 <p>Have you read the book</p>
             </span>
             <span class="radio-holder">
                 <label class="custom-radio">
-                    <input type="radio" class="red" name="read" id="">
+                    <input type="radio" class="red" name="read" id="read-red" value="red">
                     <span class="checkmark red"></span>
                 </label>
                 <label class="custom-radio green">
-                    <input type="radio" class="green" name="read" id="">
+                    <input type="radio" class="green" name="read" id="read-green" value="green">
                     <span class="checkmark green"></span>
                 </label>
                 
             </span>
+            <div class="send">
+            
+                <i class="fa-solid fa-arrow-up">
+                    <button type="submit" value=""></button> </i>
+                
+                
+            </div>
         </form>
-        <div class="send">
-            
-            <i class="fa-solid fa-arrow-up">
-                <input type="submit" value=""> </i>
-            
-            
-        </div>
+        
     </div>
     <script src="script.js" defer></script>
 </body>
