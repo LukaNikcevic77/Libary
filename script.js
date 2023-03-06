@@ -139,7 +139,7 @@ function DisplayBook(title, author, pages, grade, read, id) {
   else if(read == 'notread'){
     readDisplay.style.backgroundColor = 'red';
     
-    console.log('Nisi citao')
+    
   }
 
   console.log("Linija 154!");
