@@ -51,13 +51,19 @@ form.addEventListener('submit', (e) => {
   
   if(read['checked'] == true){
     e.preventDefault();
-    const newBook = new Book(title, author, pages, grade, 'read');
+    const newBook = new Book;
+    newBook.setProps = `${title.value} ${author.value} ${pages.value} ${grade.value} "read"`;
+    
+    //const newBook = new Book(title, author, pages, grade, 'read');
     
   }
 
   else if(notread['checked'] == true){
     e.preventDefault();
-    const newBook = new Book(title, author, pages, grade, 'notread');
+    const newBook = new Book;
+    newBook.setProps(title + " " + author + " " + pages + " " + grade + " " + "notread");
+    //const newBook = new Book(title + " " + author + " " + pages + " " + grade + " " + "notread");
+    //const newBook = new Book(title, author, pages, grade, 'notread');
   }
 
   else {
@@ -78,16 +84,27 @@ function randomBarCode(length) {
   return retVal;
 }
 
-function Book(title, author, pages, grade, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.grade = grade;
-  this.read = read;
-  this.id = randomBarCode(6);
-  addBookToLibary(this.id);
-  DisplayBook(this.title, this.author, this.pages, this.grade, this.read, this.id);
+class Book {
+
+    set setProps(value) {
+      value = value.split(' ');
+      this.title = value[0];
+      this.author = value[1];
+      this.pages = value[2];
+      this.grade = value[3];
+      this.read = value[4];
+      console.log(value);
+      console.log(this.grade);
+      this.id = randomBarCode(6);
+      addBookToLibary(this.id);
+      DisplayBook(this.title, value[1], value[2], value[3], value[4], this.id);
+    }
+
+    
+
 }
+
+
 
 function addBookToLibary(id) {
   myLibary.push(id);
@@ -98,21 +115,22 @@ function DisplayBook(title, author, pages, grade, read, id) {
   bookDisplay.classList.add('book');
   bookDisplay.setAttribute('id', 'OldBook');
   bookDisplay.setAttribute('data-barcode', id);
-  
+  console.log(title + "I come from deep end!");
   const removeicon = document.createElement('i');
   removeicon.classList.add('fa-solid');
   removeicon.classList.add('fa-circle-minus');
   removeicon.setAttribute('id', 'removeOld');
   const titleDisplay = document.createElement('h1');
-  titleDisplay.textContent = title.value;
+  titleDisplay.textContent = title;
   titleDisplay.style.marginTop = '-8%';
   
   const authorDisplay = document.createElement('h1');
-  authorDisplay.textContent = author.value;
+  authorDisplay.textContent = author;
+  
   const pagesDisplay = document.createElement('h1');
-  pagesDisplay.textContent = pages.value;
+  pagesDisplay.textContent = pages;
   const gradeDisplay = document.createElement('h1');
-  gradeDisplay.textContent = grade.value;
+  gradeDisplay.textContent = grade;
   const readDisplay = document.createElement('div');
   if(read == 'read'){
     readDisplay.style.backgroundColor = 'green';
@@ -124,7 +142,7 @@ function DisplayBook(title, author, pages, grade, read, id) {
     console.log('Nisi citao')
   }
 
-  
+  console.log("Linija 154!");
   readDisplay.addEventListener('click', (e) => {
     if(read == 'read'){
       readDisplay.style.backgroundColor = 'red';
@@ -140,6 +158,7 @@ function DisplayBook(title, author, pages, grade, read, id) {
   bookDisplay.appendChild(removeicon);
   bookDisplay.appendChild(titleDisplay);
   bookDisplay.appendChild(authorDisplay);
+  console.log(authorDisplay);
   bookDisplay.appendChild(pagesDisplay);
   bookDisplay.appendChild(gradeDisplay);
   bookDisplay.appendChild(readDisplay);
