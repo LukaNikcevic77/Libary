@@ -12,8 +12,53 @@ const pages = document.getElementById('pages');
 const grade = document.getElementById('grade');
 const read = document.getElementById('read-green');
 const notread = document.getElementById('read-red');
+const pushbutton = document.getElementById('submit');
 
 
+
+title.addEventListener('input', (e) => {
+  if(title.validity.tooShort) {
+   
+    title.setCustomValidity("We need 3 charachters boy");
+  }
+  else {
+    title.setCustomValidity("");
+  }
+});
+
+author.addEventListener('input', (e) => {
+  if(author.validity.tooShort) {
+   
+    author.setCustomValidity("We need 3 charachters boy");
+  }
+  else {
+    author.setCustomValidity("");
+  }
+})
+
+pages.addEventListener('input', (e) => {
+  if(pages.validity.rangeUnderflow) {
+    
+    pages.setCustomValidity("We need 1 or more manz");
+  }
+  else {
+    pages.setCustomValidity("");
+  }
+})
+
+grade.addEventListener('input', (e) => {
+  if(grade.validity.rangeUnderflow) {
+    
+    grade.setCustomValidity("Cant be that bad though");
+  }
+  else if(grade.validity.rangeOverflow){
+    
+    grade.setCustomValidity("Shit mans this aint harry potter");
+  }
+  else {
+    grade.setCustomValidity("");
+  }
+})
 
 let myLibary = [];
 
@@ -175,5 +220,7 @@ function DisplayBook(title, author, pages, grade, read, id) {
   }
   )
 }
+
+
 
 console.log(citao);

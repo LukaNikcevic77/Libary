@@ -32,8 +32,8 @@
         </div>
         <h1>New book</h1>
         <form action="/" method="GET" id="form" name="myform">
-            <input type="text" name="name" id="name" placeholder="Name" required>
-            <input type="text" name="author" id="author" placeholder="Author" required>
+            <input type="text" name="name" id="name" placeholder="Name" minlength="3" required>
+            <input type="text" name="author" id="author" placeholder="Author" minlength="3" required>
             <input type="number" name="pages" id="pages" placeholder="Pages" min="1" required>
             <input type="number" name="grade" id="grade" placeholder="Grade" min="1" max="10" required>
             <span>
@@ -53,7 +53,7 @@
             <div class="send">
             
                 <i class="fa-solid fa-arrow-up">
-                    <button type="submit" value=""></button> </i>
+                    <button type="submit" id="submit" ></button> </i>
                 
                 
             </div>
